@@ -1,0 +1,27 @@
+nếu tôi tắt GIT base đi thì lần sau tôi push lên có cần gõ lệnh git remote add origin <link_repo_github> này nữa k
+
+
+**Không cần**, bạn tuyệt đối không phải gõ lại lệnh đó nữa.
+
+Lệnh `git remote add origin <link>` thực chất chỉ là hành động lưu đường link của GitHub vào file cấu hình ẩn nằm bên trong thư mục `.git/config` của dự án.
+
+* Thông tin cấu hình này được lưu vĩnh viễn trên ổ cứng máy bạn, việc bạn đóng/mở cửa sổ Git Bash, tắt VS Code hay tắt máy tính hoàn toàn không làm mất nó.
+
+
+* Bạn chỉ phải chạy lệnh `git remote add` **đúng 1 lần duy nhất** lúc vừa khởi tạo dự án. Nếu chạy lại lần thứ hai với cùng tên `origin`, Git sẽ báo lỗi ngay: `error: remote origin already exists.`
+
+
+
+**Luồng lệnh từ lần sau (khi mở lại Git Bash):**
+
+Bạn chỉ cần thực hiện 3 bước thông thường:
+
+1. `git add .`
+
+2. `git commit -m "noi dung thay doi"`
+
+3. `git push` (hoặc `git push origin main` tùy cấu hình)
+
+
+
+(Nếu muốn chắc chắn xem máy còn lưu link hay không, bạn chỉ cần gõ lệnh `git remote -v` để kiểm tra).
