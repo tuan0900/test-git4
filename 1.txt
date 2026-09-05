@@ -1,0 +1,28 @@
+nếu tôi tạo một project local và muốn đẩy lên github thì khi tạo thư mục ở local và trong đó có một file text,xong đó tôi mới git init để tạo .git trong thư mục thì 
+cái file text có ảnh hưởng hay sao không
+
+
+File text đó **hoàn toàn không bị ảnh hưởng, không bị mất hay thay đổi nội dung gì cả**.
+
+Thao tác `git init` chỉ đơn thuần tạo thêm một thư mục ẩn tên là `.git` nằm cùng cấp để bắt đầu quản lý phiên bản cho thư mục đó.
+
+Trạng thái và luồng xử lý của file text sẽ diễn ra như sau:
+
+* **Trạng thái ban đầu (`Untracked`):** Sau khi `git init`, file text của bạn được xếp vào nhóm chưa theo dõi (Untracked). Git biết file đó đang tồn tại trong thư mục nhưng chưa can thiệp hay lưu vết bất kỳ điều gì.
+
+
+* **Đưa vào theo dõi:** Khi bạn muốn đưa file text này vào commit để đẩy lên GitHub, chỉ cần thực hiện lần lượt:
+1. `git add <tên_file>.txt` (hoặc `git add .` để gom tất cả)
+
+
+2. `git commit -m "feat: commit file dau tien"`
+
+3. `git remote add origin <link_repo_github>` (liên kết đến repo trên GitHub)
+
+
+4. `git push -u origin main`
+
+
+
+
+Nếu file text đó chỉ là file ghi chú cá nhân mà bạn không muốn đẩy lên GitHub, bạn chỉ cần thêm tên file đó vào file `.gitignore` trước khi gõ lệnh `git add .`.
